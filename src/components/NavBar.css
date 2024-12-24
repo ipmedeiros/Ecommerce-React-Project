@@ -1,38 +1,46 @@
+/* NavBar.css */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #43197a;  
-    padding: 0.25rem 2rem;
-    color: white;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-sizing: border-box;
-    border-bottom: 2px solid #c0c0c0;  
-  }
-  
-  .navbar a, .navbar button {
-    color: #c0c0c0;  
-    text-decoration: none;
-  }
-  
-  .navbar a:hover, .navbar button:hover {
-    color: white; 
-  }
-  
-  body {
-    margin-top: 50px;
-    font-family: Arial, sans-serif;
-  }  
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #43197a;
+  padding: 0.25rem 2rem;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  border-bottom: 2px solid #c0c0c0;
 }
 
+.navbar a, .navbar button {
+  color: #c0c0c0;
+  text-decoration: none;
+}
+
+.navbar a:hover, .navbar button:hover {
+  color: white;
+}
+
+body {
+  margin-top: 50px; 
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Estilo para a logo */
+.logo {
+  font-size: 2rem;  /* Aumentado para melhorar a visibilidade */
+  font-weight: bold;
+  height: 6rem;
+  display: flex;
+  align-items: center;  /* Centraliza o texto verticalmente */
+  padding: 0 1rem;  /* Ajusta o preenchimento lateral para dar mais espaço */
+}
+
+/* Links da barra de navegação */
 .nav-links {
   list-style: none;
   display: flex;
@@ -50,12 +58,23 @@
   color: #00ffcc;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+/* Estilo para o CartWidget (ícone do carrinho) */
+.navbar .cart-widget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem;
+  font-size: 1.5rem;  /* Tamanho do ícone */
+  cursor: pointer;  /* Muda o cursor para indicar que é clicável */
 }
 
+.navbar .cart-widget:hover {
+  color: #00ffcc; /* Cor de hover igual aos links */
+}
+
+/* Ajustes para garantir a responsividade */
 .App {
   text-align: center;
 }
@@ -64,10 +83,7 @@ main {
   padding: 2rem;
 }
 
-.logo {
-  height: 6rem;
-}
-
+/* Animação da logo */
 .logo.react {
   animation: react-spin infinite 20s linear;
 }

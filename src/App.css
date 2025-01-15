@@ -100,10 +100,12 @@ body {
 }
 
 .product-card img {
-  max-width: 100%;
-  height: auto;
+  width: 100%; /* Ocupa toda a largura do container */
+  height: 200px; /* Altura fixa */
+  object-fit: cover; /* Ajuste sem distorcer */
   border-radius: 8px;
 }
+
 
 .product-card h3 {
   margin: 1rem 0 0.5rem;
@@ -126,6 +128,21 @@ body {
 }
 
 .product-card .btn-secondary:hover {
+  background: #34125e;
+}
+
+/* Botão Adicionar ao Carrinho */
+.add-to-cart-btn {
+  background: #43197a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-to-cart-btn:hover {
   background: #34125e;
 }
 

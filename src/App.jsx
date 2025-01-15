@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import CartPage from './CartPage';
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -11,7 +12,18 @@ const App = () => {
   ];
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    const itemInCart = cart.find(item => item.id === product.id);
+    if (itemInCart) {
+      setCart(cart.map(item => 
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      ));
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
+
+  const removeFromCart = (product) => {
+    setCart(cart.filter(item => item.id !== product.id));
   };
 
   return (
@@ -36,7 +48,7 @@ const App = () => {
 
         <section id="products" className="products">
           <h2>Produtos em Destaque</h2>
-          <div className="product-grid">
+          <div className="container">
             {products.map((product) => (
               <div key={product.id} className="product-card">
                 <img src={product.image} alt={product.name} />
@@ -51,6 +63,10 @@ const App = () => {
               </div>
             ))}
           </div>
+        </section>
+
+        <section id="cart" className="cart">
+          <CartPage cart={cart} removeFromCart={removeFromCart} />
         </section>
 
         <section id="about" className="about">

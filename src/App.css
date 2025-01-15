@@ -1,45 +1,72 @@
-/* App.css */
-body, html {
+/* Importação do Font Awesome */
+@import 'node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+/* Geral */
+body {
   margin: 0;
-  padding: 0;
+  padding-top: 60px; /* Adicionado um espaço para que a navbar fique abaixo do topo fixo */
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  box-sizing: border-box;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+.nav li a {
+  color: #c0c0c0;
+  text-decoration: none;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center; /* Para alinhar o ícone verticalmente */
+  justify-content: center;
+  transition: color 0.3s;
 }
 
+.nav li a i {
+  margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+}
+
+/* Adicionado para centralizar o texto "Produtos em Destaque" */
+.products h2 {
+  text-align: center; /* Centraliza o texto apenas */
+}
+
+/* Navbar */
+.header {
+  width: 100%; /* Ocupa toda a largura */
+  background-color: #43197a;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 2rem;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  margin: 0 1rem;
+}
+
+.nav li a:hover {
+  color: white;
+}
+
+/* Hero */
 .hero {
-  background-color: #282c34; /* Cor de fundo */
-  color: white; /* Cor do texto */
-  text-align: center; /* Centraliza texto */
-  padding: 5rem 2rem; /* Espaçamento interno */
-  display: flex; /* Para centralizar verticalmente */
-  flex-direction: column;
-  justify-content: center; /* Centraliza o conteúdo verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
-}
-
-.hero h1 {
-  font-size: 2.5rem; /* Tamanho do título */
-  margin-bottom: 1rem; /* Espaço abaixo do título */
-}
-
-.hero p {
-  font-size: 1.2rem; /* Tamanho do parágrafo */
-  margin: 0; /* Remove margem padrão */
-}
-
-.navbar .logo {
-  margin-right: auto; /* Empurra a logo para a esquerda */
-}
-
-.products, .about, .contact {
-  text-align: center; /* Centraliza o conteúdo */
-  margin-top: 1rem; /* Adiciona espaçamento */
+  width: 100%; /* Ocupa toda a largura */
+  padding: 5rem 2rem;
+  background: #282c34;
+  color: white;
+  text-align: center;
 }
 
 .hero h2 {
@@ -50,23 +77,25 @@ body, html {
   font-size: 1.2rem;
 }
 
+/* Produtos */
 .products {
-  padding: 2rem 0;
+  width: 100%;
   background: #f9f9f9;
-  width: 100%; /* Garante que ocupe a largura completa */
+  padding: 2rem 0;
 }
 
-.product-grid {
+.products .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas para dispor horizontalmente */
+  gap: 1.5rem;
+  padding: 0 2rem; /* Espaçamento interno */
 }
 
 .product-card {
   background: white;
   padding: 1rem;
-  text-align: center;
   border-radius: 8px;
+  text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -77,34 +106,47 @@ body, html {
 }
 
 .product-card h3 {
-  margin-top: 1rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.product-card p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #43197a;
 }
 
 .product-card .btn-secondary {
-  background-color: #43197a;
+  background: #43197a;
   color: white;
-  padding: 0.5rem 1rem;
   border: none;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background 0.3s;
 }
 
 .product-card .btn-secondary:hover {
-  background-color: #34125e;
+  background: #34125e;
 }
 
+/* Sobre Nós */
 .about {
-  text-align: center;
+  width: 100%; /* Largura total */
   padding: 2rem;
-  background-color: #ffffff;
-  width: 100%; /* Garante que ocupe a largura completa */
+  background: #fff;
+  text-align: center;
 }
 
+.about h2 {
+  margin-bottom: 1rem;
+}
+
+/* Contato */
 .contact {
-  background: #f9f9f9;
+  width: 100%;
   padding: 2rem;
-  width: 100%; /* Garante que ocupe a largura completa */
+  background: #f9f9f9;
+  text-align: center;
 }
 
 .contact form {
@@ -115,30 +157,31 @@ body, html {
   gap: 1rem;
 }
 
-.contact input, .contact textarea {
+.contact input, .contact textarea, .contact button {
+  width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ccc;
   border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 .contact button {
-  background-color: #43197a;
+  background: #43197a;
   color: white;
   border: none;
-  padding: 0.8rem;
-  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background 0.3s;
 }
 
 .contact button:hover {
-  background-color: #34125e;
+  background: #34125e;
 }
 
+/* Footer */
 .footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #43197a;
+  width: 100%; /* Largura total */
+  background: #43197a;
   color: white;
-  width: 100%; /* Garante que ocupe a largura completa */
+  text-align: center;
+  padding: 1rem 0;
 }

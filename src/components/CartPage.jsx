@@ -43,10 +43,6 @@ const CartPage = ({ cart, removeFromCart }) => {
           )}
         </section>
       </main>
-
-      <footer className="footer">
-        <p>&copy; 2025 NerdPoint. Todos os direitos reservados.</p>
-      </footer>
     </div>
   );
 };

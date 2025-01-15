@@ -1,35 +1,44 @@
 import './CartPage.css';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
-const CartPage = ({ cart, removeFromCart }) => {
-  const [cartItems, setCartItems] = useState(cart);
+const CartPage = ({ cart, removeFromCart, setCart }) => {
 
   const incrementQuantity = (index) => {
-    const newCart = [...cartItems];
-    newCart[index].quantity += 1;
-    setCartItems(newCart);
+    const newCart = [...cart];  // Cria uma cópia do carrinho atual
+    newCart[index].quantity += 1;  // Incrementa a quantidade do item
+    setCart(newCart);  // Atualiza o estado com o novo carrinho
   };
 
   const decrementQuantity = (index) => {
-    const newCart = [...cartItems];
+    const newCart = [...cart];  // Cria uma cópia do carrinho atual
     if (newCart[index].quantity > 1) {
-      newCart[index].quantity -= 1;
-      setCartItems(newCart);
+      newCart[index].quantity -= 1;  // Decrementa a quantidade do item
+      setCart(newCart);  // Atualiza o estado com o novo carrinho
     }
+  };
+
+  const renderRemoveButton = (item) => {
+    return (
+      <button
+        className="btn-secondary"
+        onClick={() => removeFromCart(item)}
+      >
+        <i className="fas fa-trash-alt"></i>  {/* Ícone de lixeira */}
+      </button>
+    );
   };
 
   return (
     <div className="cart-page">
-      {cartItems.length === 0 ? (
+      {cart.length === 0 ? (
         <div className="empty-cart">
           <h2>O carrinho está vazio.</h2>
           <p>Adicione produtos para continuar comprando.</p>
         </div>
       ) : (
         <div className="container">
-          {cartItems.map((item, index) => (
-            <div key={index} className="product-card">
+          {cart.map((item, index) => (
+            <div key={item.id} className="product-card">
               <img src={item.image} alt={item.name} />
               <h3>{item.name}</h3>
               <p>Preço: R$ {item.price.toFixed(2)}</p>
@@ -38,13 +47,8 @@ const CartPage = ({ cart, removeFromCart }) => {
                 <span>{item.quantity}</span>
                 <button onClick={() => incrementQuantity(index)}>+</button>
               </div>
-              <div className="quantity-controls">
-                <button
-                  className="btn-secondary"
-                  onClick={() => removeFromCart(item)}
-                >
-                  Remover
-                </button>
+              <div className="remove-button">
+                {renderRemoveButton(item)}  {/* Exibe o botão de remoção com ícone de lixeira */}
               </div>
             </div>
           ))}
@@ -57,6 +61,7 @@ const CartPage = ({ cart, removeFromCart }) => {
 CartPage.propTypes = {
   cart: PropTypes.array.isRequired, // Valida que cart deve ser um array
   removeFromCart: PropTypes.func.isRequired, // Valida que removeFromCart deve ser uma função
+  setCart: PropTypes.func.isRequired,  // Valida que setCart deve ser uma função
 };
 
 export default CartPage;

@@ -66,7 +66,9 @@ const App = () => {
         </section>
 
         <section id="cart" className="cart">
-          <CartPage cart={cart} removeFromCart={removeFromCart} />
+          <div className="cart-page">
+            <CartPage cart={cart} removeFromCart={removeFromCart} />
+          </div>
         </section>
 
         <section id="about" className="about">

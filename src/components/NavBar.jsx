@@ -8,7 +8,6 @@ const NavBar = () => {
       <ul className="nav-links">
         <li><a href="#inicio" alt="Início">Início</a></li>
         <li><a href="#produtos" alt="Produtos">Produtos</a></li>
-        <li><a href="#sobre" alt="Sobre">Sobre</a></li>
         <li><a href="#contato" alt="Contato">Contato</a></li>
         <li><a href="#carrinho" alt="Carrinho">Carrinho (0)</a></li>
       </ul>

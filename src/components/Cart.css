@@ -1,5 +1,5 @@
 .cart-container {
-    max-width: 100%; /* Faz com que o carrinho ocupe toda a largura disponível */
+    max-width: 99%; /* Faz com que o carrinho ocupe toda a largura disponível */
     width: 100%; /* Garante que a largura seja total */
     margin: 0; /* Remove qualquer margem lateral */
     padding: 2rem;
@@ -86,7 +86,7 @@
     text-align: center; /* Centraliza o texto horizontalmente */
   }  
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .cart-container {
         padding: 1rem;
     }

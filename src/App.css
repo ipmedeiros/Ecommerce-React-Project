@@ -4,9 +4,9 @@
 /* Geral */
 body {
   margin: 0;
-  padding-top: 60px; /* Adicionado um espaço para que a navbar fique abaixo do topo fixo */
+  padding-top: 50px; /* Adicionado um espaço para que a navbar fique abaixo do topo fixo */
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #000000;
   box-sizing: border-box;
 }
 
@@ -37,12 +37,12 @@ body {
   top: 0;
   z-index: 1000;
   color: white;
+  padding: 0 1rem; /* Adiciona padding interno */
 }
 
 .nav {
   display: flex;
   justify-content: center;
-  padding: 1rem 2rem;
 }
 
 .nav ul {
@@ -64,7 +64,7 @@ body {
 .hero {
   width: 100%; /* Ocupa toda a largura */
   padding: 5rem 2rem;
-  background: #282c34;
+  background: #43197a;
   color: white;
   text-align: center;
 }
@@ -101,11 +101,10 @@ body {
 
 .product-card img {
   width: 100%; /* Ocupa toda a largura do container */
-  height: 200px; /* Altura fixa */
+  height: 100px; /* Altura fixa */
   object-fit: cover; /* Ajuste sem distorcer */
   border-radius: 8px;
 }
-
 
 .product-card h3 {
   margin: 1rem 0 0.5rem;
@@ -146,18 +145,6 @@ body {
   background: #34125e;
 }
 
-/* Sobre Nós */
-.about {
-  width: 100%; /* Largura total */
-  padding: 2rem;
-  background: #fff;
-  text-align: center;
-}
-
-.about h2 {
-  margin-bottom: 1rem;
-}
-
 /* Contato */
 .contact {
   width: 100%;
@@ -167,7 +154,7 @@ body {
 }
 
 .contact form {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

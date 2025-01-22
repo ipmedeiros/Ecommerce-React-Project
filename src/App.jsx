@@ -59,18 +59,13 @@ const App = () => {
               </a>
             </li>
             <li>
-              <a href="#about" alt="Sobre">
-                Sobre
-              </a>
-            </li>
-            <li>
               <a href="#contact" alt="Contato">
                 Contato
               </a>
             </li>
             <li>
               <a href="#cart" id="cart-icon" alt="Carrinho">
-                Carrinho ({cart.length})
+                <i className="fas fa-shopping-cart"></i> Carrinho ({cart.length})
               </a>
             </li>
           </ul>
@@ -101,15 +96,6 @@ const App = () => {
             decrementQuantity={decrementQuantity}
           />
         </section>
-
-        <section id="about" className="about">
-          <h2>Sobre Nós</h2>
-          <p>
-            Somos apaixonados por tecnologia e gamers de coração. Oferecemos os
-            melhores produtos do mercado com garantia e segurança.
-          </p>
-        </section>
-
         <section id="contact" className="contact">
           <h2>Contato</h2>
           <form>

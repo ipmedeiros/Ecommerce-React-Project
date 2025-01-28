@@ -7,12 +7,14 @@ function ItemCount({ stock, initial, onAdd }) {
   const increase = () => {
     if (count < stock) {
       setCount(count + 1);
+      console.log("Aumentando quantidade:", count + 1); // Debug
     }
   };
 
   const decrease = () => {
     if (count > 0) {
       setCount(count - 1);
+      console.log("Diminuindo quantidade:", count - 1); // Debug
     }
   };
 

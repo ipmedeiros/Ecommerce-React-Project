@@ -72,7 +72,7 @@ const App = () => {
               path="/"
               element={
                 <section className="hero">
-                  <h2>Bem-vindo ao NerdPoint</h2>
+                  <h2>Bem-vindo a NerdPoint</h2>
                   <p>A sua loja de games e consoles com os melhores preços e variedade!</p>
                 </section>
               }

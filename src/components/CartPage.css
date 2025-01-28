@@ -1,27 +1,58 @@
+/* ------------------------------------------------------------
+   Seção de Checkout - Finalizar Compra
+------------------------------------------------------------ */
+.checkout-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.checkout-button {
+    background: #28a745; /* Cor verde para indicar ação positiva */
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.checkout-button:hover {
+    background: #218838; /* Cor verde mais escura no hover */
+    transform: translateY(-3px); /* Efeito de elevação */
+}
+
+.checkout-button:active {
+    background: #1e7e34; /* Cor ainda mais escura no clique */
+    transform: translateY(0); /* Remove a elevação ao clicar */
+}
+
+/* ------------------------------------------------------------
+   Página do Carrinho - Estrutura Principal
+------------------------------------------------------------ */
 .cart-page {
     font-family: Arial, sans-serif;
     color: #333;
 }
 
-.nav-list {
-    display: flex;
-    justify-content: center;
-    background-color: #4a1ea4;
-    padding: 1rem 0;
+/* Seção de Carrinho Vazio */
+.empty-cart {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: #666;
 }
 
-.nav-list li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
+.empty-cart h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
 }
 
-.nav-list li a:hover {
-    color: #fffdfd;
-}
-
-/* Container Styles */
+/* ------------------------------------------------------------
+   Listagem de Produtos no Carrinho
+------------------------------------------------------------ */
 .container {
     width: 100%;
     max-width: 1100px;
@@ -33,14 +64,13 @@
     gap: 1.5rem;
 }
 
-/* Product Card Styles */
 .product-card {
     background: white;
     padding: 1rem;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
 }
 
 .product-card:hover {
@@ -65,51 +95,9 @@
     color: #4a1ea4;
 }
 
-/* Button Secondary */
-.product-card .btn-secondary {
-    background: #4a1ea4;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.product-card .btn-secondary:hover {
-    background: #34125e;
-    transform: scale(1.05);
-}
-
-/* Cart Styles */
-.cart {
-    padding: 2rem;
-    background: #f9f9f9;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.cart h2 {
-    margin-bottom: 1rem;
-    color: #444;
-}
-
-/* Empty Cart */
-.empty-cart {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 1.2rem;
-    color: #666;
-}
-
-.empty-cart h2 {
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-/* Quantity Controls */
+/* ------------------------------------------------------------
+   Controles de Quantidade (Botões + e -)
+------------------------------------------------------------ */
 .quantity-controls {
     display: flex;
     justify-content: center;
@@ -142,7 +130,52 @@
     color: #555;
 }
 
-/* Footer Styles */
+/* ------------------------------------------------------------
+   Botão de Remover Item
+------------------------------------------------------------ */
+.remove-button {
+    margin-top: 1rem;
+}
+
+.remove-button button {
+    background: #4a1ea4;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.remove-button button:hover {
+    background: #34125e;
+    transform: scale(1.05);
+}
+
+/* ------------------------------------------------------------
+   Estilos para o Menu de Navegação (Opcional)
+------------------------------------------------------------ */
+.nav-list {
+    display: flex;
+    justify-content: center;
+    background-color: #4a1ea4;
+    padding: 1rem 0;
+}
+
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+    color: #fffdfd;
+}
+
+/* ------------------------------------------------------------
+   Rodapé do Site
+------------------------------------------------------------ */
 .footer {
     width: 100%;
     background: #4a1ea4;

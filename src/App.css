@@ -32,7 +32,7 @@ body {
 /* Navbar */
 .header {
   width: 100%; /* Ocupa toda a largura */
-  background-color: #43197a;
+  background: linear-gradient(135deg, #0c0b0c, #4a148c); 
   position: fixed;
   top: 0;
   z-index: 1000;
@@ -63,8 +63,8 @@ body {
 /* Hero */
 .hero {
   width: 100%; /* Ocupa toda a largura */
-  padding: 5rem 2rem;
-  background: linear-gradient(135deg, #6a1b9a, #4a148c); /* Gradiente mais atraente */
+  padding: 14rem 2rem;
+  background: linear-gradient(135deg, #0c0b0c, #4a148c);
   color: white;
   text-align: center;
 }
@@ -141,8 +141,8 @@ body {
 
 /* Botão Adicionar ao Carrinho */
 .add-to-cart-btn {
-  background: #6a1b9a; /* Cor mais moderna para o botão */
-  color: white;
+  background: #2c1838;
+  color: rgb(246, 242, 242);
   border: none;
   padding: 10px 20px;
   border-radius: 6px;

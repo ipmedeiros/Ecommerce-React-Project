@@ -1,102 +1,129 @@
 .cart-container {
-    max-width: 99%; /* Faz com que o carrinho ocupe toda a largura disponível */
-    width: 100%; /* Garante que a largura seja total */
-    margin: 0; /* Remove qualquer margem lateral */
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12); /* Suavização da sombra */
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+  transition: background 0.2s ease-in-out;
+}
+
+.cart-item:hover {
+  background-color: #f5f5f5;
+}
+
+.cart-item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-details {
+  flex-grow: 1;
+  margin-left: 1rem;
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-decrement,
+.btn-increment,
+.btn-remove {
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+}
+
+.btn-decrement:hover,
+.btn-increment:hover {
+  background-color: #7b1fa2;
+}
+
+.btn-decrement:focus,
+.btn-increment:focus,
+.btn-remove:focus {
+  outline: 3px solid #bb86fc;
+}
+
+.btn-remove {
+  background-color: #d9534f;
+}
+
+.btn-remove:hover {
+  background-color: #c9302c;
+  transform: scale(1.05);
+}
+
+.cart-total {
+  margin-top: 1rem;
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.cart-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 200px;
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .cart-container {
+    padding: 1.5rem;
   }
-  
-  .cart-title {
-    text-align: center; /* Centraliza o título */
-    font-size: 1.8rem; /* Ajusta o tamanho da fonte */
-    margin-bottom: 1rem;
-  }
-  
-  .cart-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
+
   .cart-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #ddd;
-    padding: 1rem 0;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .cart-item-image {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 4px;
+
+  .cart-total {
+    text-align: center;
   }
-  
-  .cart-item-details {
-    flex-grow: 1;
-    margin-left: 1rem;
-  }
-  
-  .cart-item-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
+
   .btn-decrement,
   .btn-increment,
   .btn-remove {
-    background-color: #43197a;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 4px;
+    width: 100%;
+    padding: 0.75rem;
   }
-  
-  .btn-remove {
-    background-color: #d9534f;
-  }
-  
-  .btn-decrement:hover,
-  .btn-increment:hover {
-    background-color: #34125e;
-  }
-  
-  .btn-remove:hover {
-    background-color: #a94442;
-  }
-  
-  .cart-total {
-    margin-top: 1rem;
-    text-align: right;
-    font-weight: bold;
-  }
-  
-  /* Estilo para o estado do carrinho vazio */
-  .cart-empty {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Centraliza a mensagem no eixo vertical */
-    min-height: 200px; /* Define uma altura mínima */
-    text-align: center; /* Centraliza o texto horizontalmente */
-  }  
-
-@media (max-width: 600px) {
-    .cart-container {
-        padding: 1rem;
-    }
-    
-    .cart-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .cart-total {
-        text-align: center;
-    }
 }

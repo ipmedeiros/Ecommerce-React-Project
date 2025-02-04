@@ -57,7 +57,7 @@
 .btn-decrement,
 .btn-increment,
 .btn-remove {
-  background-color: #6a1b9a;
+  background-color: #6e6772;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -69,7 +69,7 @@
 
 .btn-decrement:hover,
 .btn-increment:hover {
-  background-color: #7b1fa2;
+  background-color: #661c86;
 }
 
 .btn-decrement:focus,

@@ -24,7 +24,7 @@ const ItemList = ({ products, onAddToCart }) => {
           <p>Em estoque: {product.stock}</p>
           <button
             style={{
-              backgroundColor: '#6c63ff',
+              backgroundColor: '#2c2c97',
               color: '#fff',
               border: 'none',
               padding: '10px 15px',

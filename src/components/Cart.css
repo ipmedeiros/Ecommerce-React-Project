@@ -106,6 +106,56 @@
   font-size: 1.2rem;
 }
 
+/* Estilização do botão 'Esvaziar o Carrinho' */
+.btn-clear-cart {
+  background-color: #ff9800; /* Laranja vibrante */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 1rem;
+  align-self: center;
+}
+
+.btn-clear-cart:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+}
+
+.btn-clear-cart:focus {
+  outline: 3px solid #ffcc80;
+}
+
+/* Novo estilo para o botão 'Voltar às compras' */
+.btn-back-to-shop {
+  background-color: #007bff; /* Azul chamativo */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 1rem;
+  align-self: center;
+  text-align: center;
+}
+
+.btn-back-to-shop:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.btn-back-to-shop:focus {
+  outline: 3px solid #80bfff;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
   .cart-container {
     padding: 1.5rem;
@@ -122,7 +172,9 @@
 
   .btn-decrement,
   .btn-increment,
-  .btn-remove {
+  .btn-remove,
+  .btn-clear-cart,
+  .btn-back-to-shop {
     width: 100%;
     padding: 0.75rem;
   }

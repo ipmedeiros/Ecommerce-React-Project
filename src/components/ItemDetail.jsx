@@ -2,20 +2,21 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import ItemCount from "./ItemCount";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../components/CartContext"; 
 
 const ItemDetail = ({ product }) => {
   const [quantityAdded, setQuantityAdded] = useState(0);
   const navigate = useNavigate();
+  const { addItem } = useContext(CartContext); 
 
-  // Função para adicionar ao carrinho
   const handleAdd = (quantity) => {
-    setQuantityAdded(quantity); // Atualiza o estado com a quantidade adicionada
-    console.log("Produto adicionado ao carrinho: ", quantity); // Debug para verificar o valor
+    setQuantityAdded(quantity);
+    addItem(product, quantity);
   };
 
-  // Função para finalizar a compra e redirecionar para o carrinho
   const handleFinishPurchase = () => {
-    navigate("/cart"); // Redireciona para a rota "/cart"
+    navigate("/cart");
   };
 
   return (
@@ -25,7 +26,6 @@ const ItemDetail = ({ product }) => {
       <p>{product.description}</p>
       <p>Preço: R$ {product.price.toFixed(2)}</p>
 
-      {/* Exibe o ItemCount se quantityAdded for 0, caso contrário, exibe o botão de finalizar compra */}
       {quantityAdded === 0 ? (
         <ItemCount stock={product.stock} initial={1} onAdd={handleAdd} />
       ) : (

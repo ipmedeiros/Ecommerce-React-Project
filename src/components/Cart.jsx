@@ -1,8 +1,30 @@
-import PropTypes from 'prop-types';
-import './Cart.css'; // Estilos adicionais podem ser aplicados ao carrinho.
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Cart.css';
+import { CartContext } from '../components/CartContext';
 
-const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity }) => {
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+const Cart = () => {
+  const { cart, removeItem, addItem, clearCart } = useContext(CartContext);
+  const navigate = useNavigate();
+
+  // Função para aumentar a quantidade
+  const incrementQuantity = (id) => {
+    const item = cart.find((item) => item.id === id);
+    if (item) {
+      addItem(item, item.quantity + 1); // Incrementa a quantidade atual em 1
+    }
+  };
+
+  // Função para diminuir a quantidade
+  const decrementQuantity = (id) => {
+    const item = cart.find((item) => item.id === id);
+    if (item && item.quantity > 1) {
+      addItem(item, item.quantity - 1); // Diminui a quantidade em 1, se maior que 1
+    }
+  };
+
+  // Calcula o total do carrinho
+  const total = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0); // Evita NaN
 
   return (
     <div className="cart-container">
@@ -10,6 +32,9 @@ const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity }) =>
       {cart.length === 0 ? (
         <div className="cart-empty">
           <p className="cart-empty-message">O carrinho está vazio.</p>
+          <button className="btn-primary" onClick={() => navigate('/products')}>
+            Voltar às compras
+          </button>
         </div>
       ) : (
         <div>
@@ -21,25 +46,16 @@ const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity }) =>
                   <h4>{item.name}</h4>
                   <p>R$ {item.price.toFixed(2)}</p>
                   <div className="cart-item-actions">
-                    <button
-                      onClick={() => decrementQuantity(item.id)}
-                      className="btn-decrement"
-                    >
+                    <button onClick={() => decrementQuantity(item.id)} className="btn-decrement">
                       -
                     </button>
-                    <span>{item.quantity}</span>
-                    <button
-                      onClick={() => incrementQuantity(item.id)}
-                      className="btn-increment"
-                    >
+                    <span>{item.quantity || 1}</span>
+                    <button onClick={() => incrementQuantity(item.id)} className="btn-increment">
                       +
                     </button>
                   </div>
                 </div>
-                <button
-                  onClick={() => removeFromCart(item)}
-                  className="btn-remove"
-                >
+                <button onClick={() => removeItem(item.id)} className="btn-remove">
                   Remover
                 </button>
               </li>
@@ -47,26 +63,14 @@ const Cart = ({ cart, removeFromCart, incrementQuantity, decrementQuantity }) =>
           </ul>
           <div className="cart-total">
             <h3>Total: R$ {total.toFixed(2)}</h3>
+            <button className="btn-clear-cart" onClick={clearCart}>
+              Esvaziar Carrinho
+            </button>
           </div>
         </div>
       )}
     </div>
   );
-};
-
-Cart.propTypes = {
-  cart: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      image: PropTypes.string.isRequired,
-      quantity: PropTypes.number.isRequired,
-    })
-  ).isRequired,
-  removeFromCart: PropTypes.func.isRequired,
-  incrementQuantity: PropTypes.func.isRequired,
-  decrementQuantity: PropTypes.func.isRequired,
 };
 
 export default Cart;

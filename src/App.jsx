@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import ItemListContainer from './components/ItemListContainer';
 import Cart from './components/Cart';
+import { CartProvider } from './components/CartContext'; // Importando o CartProvider
 
 const App = () => {
   return (
